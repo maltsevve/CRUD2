@@ -2,13 +2,13 @@ package com.maltsevve.crud2;
 
 import com.maltsevve.crud2.view.LabelView;
 import com.maltsevve.crud2.view.PostView;
-import com.maltsevve.crud2.view.WriterView;
+//import com.maltsevve.crud2.view.WriterView;
 
 import java.util.Scanner;
 
 public class Runner {
     static Scanner sc = new Scanner(System.in);
-    static WriterView wv = new WriterView();
+//    static WriterView wv = new WriterView();
     static PostView pv = new PostView();
     static LabelView lv = new LabelView();
 
@@ -32,7 +32,7 @@ public class Runner {
             switch (Integer.parseInt(input)) {
                 case 1 -> lv.logic();
                 case 2 -> pv.logic();
-                case 3 -> wv.logic();
+//                case 3 -> wv.logic();
                 case 4 -> {}
                 default -> {
                     System.out.println("Non-existent menu item. Try again.\n");

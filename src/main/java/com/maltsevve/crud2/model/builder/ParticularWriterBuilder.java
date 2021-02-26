@@ -1,7 +1,6 @@
 package com.maltsevve.crud2.model.builder;
 
 import com.maltsevve.crud2.model.Post;
-import com.maltsevve.crud2.model.Writer;
 
 import java.util.List;
 

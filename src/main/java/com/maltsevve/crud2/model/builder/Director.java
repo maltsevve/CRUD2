@@ -10,6 +10,7 @@ public class Director {
     }
 
     public Writer buildWriter() {
+        writerBuilder.buildWriter();
         writerBuilder.buildFirstName();
         writerBuilder.buildLastName();
         writerBuilder.buildPosts();

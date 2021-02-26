@@ -2,8 +2,6 @@ package com.maltsevve.crud2.model.builder;
 
 import com.maltsevve.crud2.model.Writer;
 
-import java.util.ArrayList;
-
 public abstract class WriterBuilder {
     Writer writer;
 
