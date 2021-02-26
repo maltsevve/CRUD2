@@ -1,4 +1,4 @@
-package com.maltsevve.crud2.model.builder;
+package com.maltsevve.crud2.model.builders.writer;
 
 import com.maltsevve.crud2.model.Writer;
 

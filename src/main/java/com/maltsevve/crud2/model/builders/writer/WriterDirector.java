@@ -1,8 +1,8 @@
-package com.maltsevve.crud2.model.builder;
+package com.maltsevve.crud2.model.builders.writer;
 
 import com.maltsevve.crud2.model.Writer;
 
-public class Director {
+public class WriterDirector {
     WriterBuilder writerBuilder;
 
     public void setWriterBuilder(WriterBuilder writerBuilder) {

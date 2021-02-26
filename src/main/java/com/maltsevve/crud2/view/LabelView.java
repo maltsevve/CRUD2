@@ -2,6 +2,8 @@ package com.maltsevve.crud2.view;
 
 import com.maltsevve.crud2.controller.LabelController;
 import com.maltsevve.crud2.model.Label;
+import com.maltsevve.crud2.model.builders.label.LabelDirector;
+import com.maltsevve.crud2.model.builders.label.ParticularLabelBuilder;
 
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +12,7 @@ import static com.maltsevve.crud2.Runner.mainMenuLogic;
 
 public class LabelView {
     private final LabelController lc = new LabelController();
+    private final LabelDirector labelDirector = new LabelDirector();
     Scanner sc = new Scanner(System.in);
 
     public LabelView() {
@@ -36,7 +39,8 @@ public class LabelView {
                 case 1 -> { // SAVE
                     System.out.println("Input name: ");
                     input = sc.nextLine();
-                    lc.save(new Label(input));
+                    labelDirector.setLabelBuilder(new ParticularLabelBuilder(input));
+                    lc.save(labelDirector.buildLabel());
                     System.out.println();
                     logic();
                 }
@@ -51,7 +55,8 @@ public class LabelView {
                             // по невнимательности, попытается изменить имя на идентичное существующему
                             if (Integer.parseInt(strs[0]) > 0 && !labels.get(Integer.
                                     parseInt(strs[0]) - 1).getName().equals(strs[1])) {
-                                Label label = new Label(strs[1]);
+                                labelDirector.setLabelBuilder(new ParticularLabelBuilder(strs[1]));
+                                Label label = labelDirector.buildLabel();
                                 label.setId(Long.parseLong(strs[0]));
                                 lc.update(label);
                                 System.out.println();

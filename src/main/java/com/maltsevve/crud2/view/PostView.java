@@ -4,6 +4,10 @@ import com.maltsevve.crud2.controller.LabelController;
 import com.maltsevve.crud2.controller.PostController;
 import com.maltsevve.crud2.model.Label;
 import com.maltsevve.crud2.model.Post;
+import com.maltsevve.crud2.model.builders.label.LabelDirector;
+import com.maltsevve.crud2.model.builders.label.ParticularLabelBuilder;
+import com.maltsevve.crud2.model.builders.post.ParticularPostBuilder;
+import com.maltsevve.crud2.model.builders.post.PostDirector;
 
 import java.util.List;
 import java.util.Scanner;
@@ -14,6 +18,8 @@ import static com.maltsevve.crud2.Runner.mainMenuLogic;
 public class PostView {
     private final PostController pc = new PostController();
     private final LabelController lc = new LabelController();
+    private final PostDirector postDirector = new PostDirector();
+    private final LabelDirector labelDirector = new LabelDirector();
     Scanner sc = new Scanner(System.in);
 
     public PostView() {
@@ -40,7 +46,8 @@ public class PostView {
                 case 1 -> { // SAVE
                     System.out.println("Input content: ");
                     input = sc.nextLine();
-                    pc.save(new Post(input, lc.getAll()));
+                    postDirector.setPostBuilder(new ParticularPostBuilder(input, lc.getAll()));
+                    pc.save(postDirector.buildPost());
                     System.out.println();
                     logic();
                 }
@@ -145,7 +152,8 @@ public class PostView {
                             if (Integer.parseInt(str[0]) > 0 && !posts.get(Integer.
                                     parseInt(str[0]) - 1).getContent().equals(str[1])) {
                                 List<Label> labels = posts.get(Integer.parseInt(str[0]) - 1).getLabels();
-                                Post post = new Post(str[1], labels);
+                                postDirector.setPostBuilder(new ParticularPostBuilder(str[1], labels));
+                                Post post = postDirector.buildPost();
                                 post.setId(Long.parseLong(str[0]));
                                 post.setCreated(posts.get(Integer.parseInt(str[0]) - 1).getCreated());
                                 pc.update(post);
@@ -177,11 +185,13 @@ public class PostView {
                                 List<Label> labels = pc.getByID(postID).getLabels();
                                 String content = pc.getByID(postID).getContent();
 
-                                Label label = new Label(str[1]);
+                                labelDirector.setLabelBuilder(new ParticularLabelBuilder(str[1]));
+                                Label label = labelDirector.buildLabel();
                                 label.setId(Long.parseLong(str[0]));
                                 labels.set(labelID - 1, label);
 
-                                Post post = new Post(content, labels);
+                                postDirector.setPostBuilder(new ParticularPostBuilder(content, labels));
+                                Post post = postDirector.buildPost();
                                 post.setId(postID);
                                 post.setCreated(pc.getByID(postID).getCreated());
                                 pc.update(post);

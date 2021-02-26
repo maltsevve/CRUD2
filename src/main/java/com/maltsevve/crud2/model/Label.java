@@ -1,30 +1,13 @@
 package com.maltsevve.crud2.model;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Data
+@Getter @Setter @NoArgsConstructor
 public class Label {
     private Long id;
     private String name;
-
-    public Label() {
-
-    }
-
-    public Label(String name) {
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
