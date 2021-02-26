@@ -4,7 +4,7 @@ import com.maltsevve.crud2.model.Writer;
 
 import java.util.ArrayList;
 
-public class WriterBuilder {
+public abstract class WriterBuilder {
     Writer writer;
 
     public void buildWriter() {
@@ -12,15 +12,12 @@ public class WriterBuilder {
     }
 
     public void buildFirstName() {
-        writer.setFirstName("");
     }
 
     public void buildLastName() {
-        writer.setLastName("");
     }
 
     public void buildPosts() {
-        writer.setPosts(new ArrayList<>());
     }
 
     public Writer getWriter() {
