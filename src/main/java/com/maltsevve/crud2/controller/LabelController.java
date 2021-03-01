@@ -2,11 +2,12 @@ package com.maltsevve.crud2.controller;
 
 import com.maltsevve.crud2.model.Label;
 import com.maltsevve.crud2.repository.JavaIOLabelRepositoryImpl;
+import com.maltsevve.crud2.repository.LabelRepository;
 
 import java.util.List;
 
 public class LabelController {
-    JavaIOLabelRepositoryImpl lr = new JavaIOLabelRepositoryImpl();
+    LabelRepository lr = new JavaIOLabelRepositoryImpl();
 
     public LabelController() {
     }

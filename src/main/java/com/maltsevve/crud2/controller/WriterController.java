@@ -2,11 +2,12 @@ package com.maltsevve.crud2.controller;
 
 import com.maltsevve.crud2.model.Writer;
 import com.maltsevve.crud2.repository.JavaIOWriterRepositoryImpl;
+import com.maltsevve.crud2.repository.WriterRepository;
 
 import java.util.List;
 
 public class WriterController {
-    JavaIOWriterRepositoryImpl wr = new JavaIOWriterRepositoryImpl();
+    WriterRepository wr = new JavaIOWriterRepositoryImpl();
     
     public WriterController() {
 

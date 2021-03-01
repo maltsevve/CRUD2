@@ -2,11 +2,12 @@ package com.maltsevve.crud2.controller;
 
 import com.maltsevve.crud2.model.Post;
 import com.maltsevve.crud2.repository.JavaIOPostRepositoryImpl;
+import com.maltsevve.crud2.repository.PostRepository;
 
 import java.util.List;
 
 public class PostController {
-    JavaIOPostRepositoryImpl pr = new JavaIOPostRepositoryImpl();
+    PostRepository pr = new JavaIOPostRepositoryImpl();
 
     public PostController() {
         
